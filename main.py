@@ -1,0 +1,23 @@
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI(title="Leadly")
+leads = []
+
+class Lead(BaseModel):
+    name: str
+    email: str
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+@app.post("/v1/leads")
+def create_lead(lead: Lead):
+    new = {"id": len(leads) + 1, "name": lead.name, "email": lead.email}
+    leads.append(new)
+    return new
+
+@app.get("/v1/leads")
+def list_leads():
+    return leads

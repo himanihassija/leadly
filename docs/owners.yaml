@@ -1,0 +1,6 @@
+docs/getting-started.md:
+  owner: Tech team
+  notify: telegram
+docs/gtm-demo-guide.md:
+  owner: GTM team
+  notify: telegram
