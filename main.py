@@ -5,7 +5,7 @@ app = FastAPI(title="Leadly")
 leads = []
 
 class Lead(BaseModel):
-    name: str
+    full_name: str
     work_email: str
 
 @app.get("/healthz")
@@ -14,7 +14,7 @@ def health():
 
 @app.post("/v2/leads")
 def create_lead(lead: Lead):
-    new = {"id": len(leads) + 1, "name": lead.name, "work_email": lead.work_email}
+    new = {"id": len(leads) + 1, "full_name": lead.full_name, "work_email": lead.work_email}
     leads.append(new)
     return new
 
