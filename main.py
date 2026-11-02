@@ -8,7 +8,7 @@ class Lead(BaseModel):
     full_name: str
     work_email: str
 
-@app.get("/status")
+@app.get("/ping")
 def health():
     return {"status": "ok"}
 
