@@ -12,12 +12,12 @@ class Lead(BaseModel):
 def health():
     return {"status": "ok"}
 
-@app.post("/v5/leads")
+@app.post("/v6/leads")
 def create_lead(lead: Lead):
     new = {"id": len(leads) + 1, "full_name": lead.full_name, "work_email": lead.work_email}
     leads.append(new)
     return new
 
-@app.get("/v5/leads")
+@app.get("/v6/leads")
 def list_leads():
     return leads
