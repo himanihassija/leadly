@@ -4,3 +4,4 @@
 2. Start the server: `uv run uvicorn main:app --port 8000`
 3. Check it works: `curl http://localhost:8000/ping`
    Expected: `{"status":"ok"}`
+test
